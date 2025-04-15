@@ -2,6 +2,6 @@
 {
     public class RecipesViewModel
     {
-        public List<Recipe> Recipes { get; set; }
+        public List<Recipe> RecipesList { get; set; }
     }
 }

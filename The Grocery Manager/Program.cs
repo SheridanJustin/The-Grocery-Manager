@@ -22,6 +22,7 @@ namespace The_Grocery_Manager
 
             builder.Services.AddHttpContextAccessor();
 
+            builder.Services.AddScoped<IRecipeRepository, RecipeRepository>();
 
 
             builder.Services.AddSession(); // Add this before builder.Build()

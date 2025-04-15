@@ -1,0 +1,22 @@
+﻿@using The_Grocery_Manager.Models.View_Models
+@model RecipesViewModel
+
+@{
+	Layout = "_layout";
+	ViewData["Title"] = "Recipes";
+}
+
+<h2>My Recipes</h2>
+@if (Model?.RecipesList != null && Model.RecipesList.Count > 0){
+	@foreach(var recipe in Model.RecipesList){
+		<div>
+			<h4>Name: @recipe.Name</h4>
+			<h4>Ingredients: @recipe.Ingredients</h4>
+			<h4>Instructions: @recipe.Instructions</h4>
+
+		</div>
+	}
+}
+else{
+	<p>no recipes found</p>
+}

@@ -18,6 +18,23 @@ namespace The_Grocery_Manager.Controllers
             return View();
         }
 
+
+        public IActionResult Profile()
+        {
+            int? userId = HttpContext.Session.GetInt32("UserId");
+
+            if (userId == null)
+                return RedirectToAction("Login");
+
+            var user = _context.Users.FirstOrDefault(u => u.UserId == userId);
+
+            if (user == null)
+                return NotFound();
+
+            return View(user);
+        }
+
+
         // POST: /User/Login
         [HttpPost]
         public IActionResult Login(string email, string password)

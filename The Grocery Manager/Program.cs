@@ -20,6 +20,9 @@ namespace The_Grocery_Manager
             // Register InventoryService as Scoped
             builder.Services.AddScoped<InventoryService>();
 
+            builder.Services.AddHttpContextAccessor();
+
+
 
             builder.Services.AddSession(); // Add this before builder.Build()
 
@@ -37,6 +40,7 @@ namespace The_Grocery_Manager
             app.UseStaticFiles();
 
             app.UseRouting();
+
 
             app.UseAuthorization();
 

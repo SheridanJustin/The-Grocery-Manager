@@ -4,6 +4,8 @@
     public interface IRecipeRepository
     {
         IQueryable<Recipe> GetAllRecipes();
+
+        IQueryable<Recipe> GetRecipesByUser(int userId);
         IQueryable<Recipe> GetDinnerRecipes ( string category);
 
     }

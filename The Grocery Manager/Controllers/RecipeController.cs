@@ -10,6 +10,8 @@ namespace The_Grocery_Manager.Controllers
         private IRecipeRepository _recipeRepository;
         private GroceryDbContext _groceryDbContext;
 
+
+        
         public RecipeController(IRecipeRepository recipeRepository, GroceryDbContext groceryDbContext)
         {
             _groceryDbContext = groceryDbContext;
@@ -18,29 +20,34 @@ namespace The_Grocery_Manager.Controllers
         [HttpGet]
         public IActionResult MyRecipes()
         {
-            var userIdStr = HttpContext.Session.GetString("UserId");
-            if (string.IsNullOrEmpty(userIdStr) || !int.TryParse(userIdStr, out int userId))
+            int? userId = HttpContext.Session.GetInt32("UserId");
+            if(userId == null)
             {
                 Console.WriteLine("User ID not found in session.");
                 return RedirectToAction("Login", "Account");
             }
-            var userRecipes = _recipeRepository.GetAllRecipes();
+
+            
+
+            var userRecipes = _recipeRepository.GetRecipesByUser(userId.Value);
             if (!userRecipes.Any())
             {
-                Console.WriteLine("No recipes to show");
+                Console.WriteLine("No recipes for " + userId);
             }
                 var model = new RecipesViewModel
                 {
                     RecipesList = userRecipes.ToList()
                 };
 
-                return View(model);
+                return View("Recipes", model);
         }
+
+       
 
 
         public IActionResult Index()
         {
-            return View("Recipes");
+            return RedirectToAction("MyRecipes");
         }
     }
 }

@@ -37,11 +37,11 @@ namespace The_Grocery_Manager.Models
                 );
 
             modelBuilder.Entity<Ingredient>().HasData(
-                 new Ingredient { IngredientId = 1, Name = "Spaghetti", Unit = "Box", Description = "Dry pasta noodles" },
-                 new Ingredient { IngredientId = 2, Name = "Ground Beef", Unit = "Pound", Description = "Lean ground beef" },
-                 new Ingredient { IngredientId = 3, Name = "Chicken", Unit = "Piece", Description = "Boneless chicken breast" },
-                 new Ingredient { IngredientId = 4, Name = "Flour", Unit = "Cup", Description = "All-purpose flour for pancakes" },
-                 new Ingredient { IngredientId = 5, Name = "Cheddar Cheese", Unit = "Slice", Description = "Sliced cheddar cheese" }
+                 new Ingredient { IngredientId = 1, Name = "Spaghetti", Unit = "Box", Description = "Dry pasta noodles", RecipeId = 1 },
+                 new Ingredient { IngredientId = 2, Name = "Ground Beef", Unit = "Pound", Description = "Lean ground beef", RecipeId = 1 },
+                 new Ingredient { IngredientId = 3, Name = "Chicken", Unit = "Piece", Description = "Boneless chicken breast", RecipeId = 2 },
+                 new Ingredient { IngredientId = 4, Name = "Flour", Unit = "Cup", Description = "All-purpose flour for pancakes", RecipeId = 3 },
+                 new Ingredient { IngredientId = 5, Name = "Cheddar Cheese", Unit = "Slice", Description = "Sliced cheddar cheese", RecipeId = 4 }
                 );
             modelBuilder.Entity<Inventory>().HasData(
                  new Inventory { InventoryId = 1, UserId = 1, ItemName = "Spaghetti", Quantity = 2, Unit = "Boxes", LastUpdated = new DateTime(2025, 04, 11) },

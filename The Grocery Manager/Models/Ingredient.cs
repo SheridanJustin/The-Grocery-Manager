@@ -22,7 +22,11 @@
         /// </summary>
         public string Description { get; set; }
 
+        public int RecipeId { get; set; }
+
         // Navigation property for linking with ShoppingList
         public ICollection<ShoppingList> ShoppingLists { get; set; }
+
+       // public Recipe Recipe { get; set; }  
     }
 }

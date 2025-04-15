@@ -15,6 +15,11 @@ namespace The_Grocery_Manager.Models
         {
             return _context.Recipes;
         }
+        public IQueryable<Recipe> GetRecipesByUser(int userId)
+        {
+            return _context.Recipes.Include(r => r.Ingredients).Where(r => r.UserId == userId);
+        }
+
 
         public IQueryable<Recipe> GetDinnerRecipes(string category)
         {

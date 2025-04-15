@@ -22,5 +22,8 @@
         // Navigation properties
         public User User { get; set; }
         public ICollection<Ingredient> Ingredients { get; set; }
+       // public ICollection<ShoppingListIngredient> ShoppingListIngredients { get; set; } = new List<ShoppingListIngredient>();
+
+
     }
 }

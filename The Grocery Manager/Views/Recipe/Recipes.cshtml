@@ -8,11 +8,24 @@
 
 <h2>My Recipes</h2>
 @if (Model?.RecipesList != null && Model.RecipesList.Count > 0){
-	@foreach(var recipe in Model.RecipesList){
+	foreach(var recipe in Model.RecipesList){
 		<div>
 			<h4>Name: @recipe.Name</h4>
-			<h4>Ingredients: @recipe.Ingredients</h4>
+			<h4>Ingredients:</h4>
+			<ul>
+				@foreach (var ingredient in recipe.Ingredients)
+				{
+					<li>
+						@ingredient.Name (@ingredient.Unit)
+						<form asp-controller="ShoppingList" asp-action="Add" method="post" class="d-inline">
+							<input type="hidden" name="ingredientId" value="@ingredient.IngredientId" />
+							<button type="submit" class="btn btn-sm btn-primary">Add to Shopping List</button>
+						</form>
+					</li>
+				}
+			</ul>
 			<h4>Instructions: @recipe.Instructions</h4>
+			<h6> Ingredient Count: @recipe.Ingredients.Count()</h6>
 
 		</div>
 	}

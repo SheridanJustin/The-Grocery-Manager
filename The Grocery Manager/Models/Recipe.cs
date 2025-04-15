@@ -25,6 +25,6 @@
         public string Instructions { get; set; }
 
         // Navigation property for ingredients used in the recipe
-        public ICollection<Ingredient> Ingredients { get; set; }
+        public ICollection<Ingredient> Ingredients { get; set; } = new List<Ingredient>();
     }
 }

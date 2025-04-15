@@ -28,6 +28,9 @@
         public DateTime RegisteredOn { get; set; }
 
         // Initialize collections to avoid null ModelState errors
+
+        public ICollection<Recipe> Recipes { get; set; } = new List<Recipe>();
+
         public ICollection<Inventory> Inventories { get; set; } = new List<Inventory>();
         public ICollection<ShoppingList> ShoppingLists { get; set; } = new List<ShoppingList>();
     }

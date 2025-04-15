@@ -7,6 +7,13 @@
     {
         public int RecipeId { get; set; }
 
+
+        /// <summary>
+        /// Foreign key to the owning user
+        /// </summary>
+        public int UserId { get; set; }
+
+
         /// <summary>
         /// The name of the recipe.
         /// </summary>

@@ -1,0 +1,42 @@
+﻿@model The_Grocery_Manager.Models.UserDashboardViewModel
+
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<h2>Welcome to Your Dashboard</h2>
+
+<div class="row">
+    <!-- Recipes Card -->
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Your Recipes</h5>
+                <p class="card-text">Click to view or manage your recipes.</p>
+                <a href="@Url.Action("Index", "Recipe")" class="btn btn-primary">View Recipes</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Inventory Card -->
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Your Inventory</h5>
+                <p class="card-text">See what ingredients you have at home.</p>
+                <a href="@Url.Action("Index", "Inventory")" class="btn btn-primary">View Inventory</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Shopping List Card -->
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Your Shopping List</h5>
+                <p class="card-text">View your shopping list generated from your meal plan.</p>
+                <a href="@Url.Action("Index", "ShoppingList")" class="btn btn-primary">View Shopping List</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -20,7 +20,14 @@ namespace The_Grocery_Manager
             // Register InventoryService as Scoped
             builder.Services.AddScoped<InventoryService>();
 
+
+            builder.Services.AddSession(); // Add this before builder.Build()
+
+
             var app = builder.Build();
+
+            app.UseSession();
+
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())

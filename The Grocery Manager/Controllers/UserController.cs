@@ -26,13 +26,14 @@ namespace The_Grocery_Manager.Controllers
 
             if (user != null)
             {
-                // Redirect to home or dashboard
-                return RedirectToAction("Dashboard", "Home");
+                HttpContext.Session.SetInt32("UserId", user.UserId); // ✅ Save user ID in session
+                return RedirectToAction("Dashboard", "User");
             }
 
             ViewBag.ErrorMessage = "Invalid email or password.";
             return View();
         }
+
 
         // GET: /User/Register
         public IActionResult Register()
@@ -61,6 +62,30 @@ namespace The_Grocery_Manager.Controllers
             _context.SaveChanges();
 
             return RedirectToAction("Login");
+        }
+
+
+
+
+        // GET: User/Dashboard
+        public IActionResult Dashboard()
+        {
+            int? userId = HttpContext.Session.GetInt32("UserId");
+
+            // Get user's recipes, inventory, and shopping list
+            var recipes = _context.Recipes.Where(r => r.UserId == userId).ToList();
+            var inventory = _context.Inventories.Where(i => i.UserId == userId).ToList();
+            var shoppingList = _context.ShoppingLists.Where(s => s.UserId == userId).ToList();
+
+            // Pass data to the view
+            var model = new UserDashboardViewModel
+            {
+                Recipes = recipes,
+                Inventory = inventory,
+                ShoppingList = shoppingList
+            };
+
+            return View(model);
         }
 
 

@@ -3,16 +3,26 @@
     ViewData["Title"] = "Your Profile";
 }
 
-<h2>Your Profile</h2>
-
-<div class="card mt-3">
-    <div class="card-body">
-        <h5 class="card-title">@Model.FullName</h5>
-        <p class="card-text">
-            <strong>Email:</strong> @Model.Email<br />
-            <strong>Registered On:</strong> @Model.RegisteredOn.ToString("MMMM dd, yyyy")
-        </p>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-sm border-0">
+                <div class="card-body text-center py-4">
+                    <h3 class="card-title mb-3">Hello, @Model.FullName!</h3>
+                    <p class="card-text text-muted mb-4">
+                        Here's your profile information:
+                    </p>
+                    <ul class="list-group list-group-flush text-start">
+                        <li class="list-group-item">
+                            <strong>Email:</strong> @Model.Email
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Registered On:</strong> @Model.RegisteredOn.ToString("MMMM dd, yyyy")
+                        </li>
+                    </ul>
+                    <a asp-action="Dashboard" class="btn btn-outline-primary mt-4">Back to Dashboard</a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-
-<a asp-action="Dashboard" class="btn btn-primary mt-3">Back to Dashboard</a>

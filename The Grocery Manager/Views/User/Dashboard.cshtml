@@ -4,38 +4,43 @@
     ViewData["Title"] = "Dashboard";
 }
 
-<h2>Welcome to Your Dashboard</h2>
-
-<div class="row">
-    <!-- Recipes Card -->
-    <div class="col-md-4">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Your Recipes</h5>
-                <p class="card-text">Click to view or manage your recipes.</p>
-                <a href="@Url.Action("MyRecipes", "Recipe")" class="btn btn-primary">View Recipes</a>
-            </div>
-        </div>
+<div class="container mt-5">
+    <div class="text-center mb-4">
+        <h2 class="fw-bold">Welcome to Your Dashboard</h2>
+        <p class="text-muted">Access everything you need to manage your meals and ingredients.</p>
     </div>
 
-    <!-- Inventory Card -->
-    <div class="col-md-4">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Your Inventory</h5>
-                <p class="card-text">See what ingredients you have at home.</p>
-                <a href="@Url.Action("Index", "Inventory")" class="btn btn-primary">View Inventory</a>
+    <div class="row g-4">
+        <!-- Recipes Card -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card shadow-sm border-0 h-100">
+                <div class="card-body text-center">
+                    <h5 class="card-title mb-2">Your Recipes</h5>
+                    <p class="card-text text-muted">Click to view or manage your recipes.</p>
+                    <a href="@Url.Action("MyRecipes", "Recipe")" class="btn btn-outline-primary w-100">View Recipes</a>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- Shopping List Card -->
-    <div class="col-md-4">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Your Shopping List</h5>
-                <p class="card-text">View your shopping list generated from your meal plan.</p>
-                <a href="@Url.Action("Index", "ShoppingList")" class="btn btn-primary">View Shopping List</a>
+        <!-- Inventory Card -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card shadow-sm border-0 h-100">
+                <div class="card-body text-center">
+                    <h5 class="card-title mb-2">Your Inventory</h5>
+                    <p class="card-text text-muted">See what ingredients you have at home.</p>
+                    <a href="@Url.Action("Index", "Inventory")" class="btn btn-outline-success w-100">View Inventory</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Shopping List Card -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card shadow-sm border-0 h-100">
+                <div class="card-body text-center">
+                    <h5 class="card-title mb-2">Your Shopping List</h5>
+                    <p class="card-text text-muted">View your shopping list.</p>
+                    <a href="@Url.Action("Index", "ShoppingList")" class="btn btn-outline-warning w-100">View Shopping List</a>
+                </div>
             </div>
         </div>
     </div>

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using The_Grocery_Manager.Models;
 
@@ -11,9 +12,11 @@ using The_Grocery_Manager.Models;
 namespace The_Grocery_Manager.Migrations
 {
     [DbContext(typeof(GroceryDbContext))]
-    partial class GroceryDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250416011605_UpdateDb")]
+    partial class UpdateDb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

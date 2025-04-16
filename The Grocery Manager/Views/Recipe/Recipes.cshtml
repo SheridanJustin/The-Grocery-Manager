@@ -1,35 +1,51 @@
-﻿@using The_Grocery_Manager.Models.View_Models
+﻿<!-- Author: Jeffrey -->
+
+
+@using The_Grocery_Manager.Models.View_Models
 @model RecipesViewModel
 
 @{
-	Layout = "_layout";
-	ViewData["Title"] = "Recipes";
+    Layout = "_layout";
+    ViewData["Title"] = "Recipes";
 }
 
-<h2>My Recipes</h2>
-@if (Model?.RecipesList != null && Model.RecipesList.Count > 0){
-	foreach(var recipe in Model.RecipesList){
-		<div>
-			<h4>Name: @recipe.Name</h4>
-			<h4>Ingredients:</h4>
-			<ul>
-				@foreach (var ingredient in recipe.Ingredients)
-				{
-					<li>
-						@ingredient.Name (@ingredient.Unit)
-						<form asp-controller="ShoppingList" asp-action="Add" method="post" class="d-inline">
-							<input type="hidden" name="ingredientId" value="@ingredient.IngredientId" />
-							<button type="submit" class="btn btn-sm btn-primary">Add to Shopping List</button>
-						</form>
-					</li>
-				}
-			</ul>
-			<h4>Instructions: @recipe.Instructions</h4>
-			<h6> Ingredient Count: @recipe.Ingredients.Count()</h6>
+<div class="container mt-4">
+    <h2 class="mb-4 text-center text-primary">🍽️ My Recipes</h2>
 
-		</div>
-	}
-}
-else{
-	<p>no recipes found</p>
-}
+    @if (Model?.RecipesList != null && Model.RecipesList.Count > 0)
+    {
+        foreach (var recipe in Model.RecipesList)
+        {
+            <div class="card shadow-sm mb-4 border border-primary rounded-3">
+                <div class="card-body">
+                    <h4 class="card-title text-success">@recipe.Name</h4>
+
+                    <h5 class="mt-3">🧂 Ingredients</h5>
+                    <ul class="list-group list-group-flush mb-3">
+                        @foreach (var ingredient in recipe.Ingredients)
+                        {
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <span>@ingredient.Name (@ingredient.Unit)</span>
+                                <form asp-controller="ShoppingList" asp-action="Add" method="post" class="m-0">
+                                    <input type="hidden" name="ingredientId" value="@ingredient.IngredientId" />
+                                    <button type="submit" class="btn btn-sm btn-outline-primary">➕ Add</button>
+                                </form>
+                            </li>
+                        }
+                    </ul>
+
+                    <h5 class="mt-3">📖 Instructions</h5>
+                    <p class="card-text">@recipe.Instructions</p>
+
+                    <div class="text-muted small mt-2">Ingredient Count: <strong>@recipe.Ingredients.Count()</strong></div>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <div class="alert alert-info text-center">
+            <strong>Oops!</strong> No recipes found. Try adding some!
+        </div>
+    }
+</div>

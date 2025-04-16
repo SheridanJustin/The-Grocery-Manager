@@ -4,42 +4,120 @@
     ViewData["Title"] = "Dashboard";
 }
 
+<style>
+    .dashboard-title {
+        color: #28a745;
+    }
+
+    .card {
+        border-radius: 16px;
+        transition: transform 0.2s ease-in-out;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+        }
+
+    /* General Button Style */
+    .btn-green {
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-weight: 500;
+    }
+
+        .btn-green:hover {
+            background-color: #218838;
+        }
+
+    .btn-outline-green {
+        border-color: #28a745;
+        color: #28a745;
+        border-radius: 10px;
+        font-weight: 500;
+    }
+
+        .btn-outline-green:hover {
+            background-color: #28a745;
+            color: white;
+        }
+
+    /* Custom styles for each card based on their content */
+    .card-recipes {
+        background-color: #f8f9fa; /* Light background for Recipes */
+        border-left: 5px solid #ffc107; /* Yellow accent for Recipes */
+    }
+
+    .card-inventory {
+        background-color: #e9f7ef; /* Light green background for Inventory */
+        border-left: 5px solid #17a2b8; /* Blue accent for Inventory */
+    }
+
+    .card-shopping-list {
+        background-color: #f1f3f5; /* Light grey background for Shopping List */
+        border-left: 5px solid #dc3545; /* Red accent for Shopping List */
+    }
+
+    .card-body h5 {
+        font-size: 1.25rem;
+        font-weight: 600;
+    }
+
+    .card-body p {
+        font-size: 1rem;
+    }
+
+    /* Icon Styling */
+    .card-body .bi {
+        font-size: 3rem;
+        margin-bottom: 15px;
+        color: #28a745;
+    }
+</style>
+
+
 <div class="container mt-5">
-    <div class="text-center mb-4">
-        <h2 class="fw-bold">Welcome to Your Dashboard</h2>
+    <div class="text-center mb-5">
+        <h2 class="fw-bold dashboard-title">Welcome to Your Dashboard</h2>
         <p class="text-muted">Access everything you need to manage your meals and ingredients.</p>
     </div>
 
     <div class="row g-4">
         <!-- Recipes Card -->
         <div class="col-md-6 col-lg-4">
-            <div class="card shadow-sm border-0 h-100">
+            <div class="card shadow-sm h-100 card-recipes">
                 <div class="card-body text-center">
+                    <i class="bi bi-book-half"></i>
                     <h5 class="card-title mb-2">Your Recipes</h5>
                     <p class="card-text text-muted">Click to view or manage your recipes.</p>
-                    <a href="@Url.Action("MyRecipes", "Recipe")" class="btn btn-outline-primary w-100">View Recipes</a>
+                    <a href="@Url.Action("MyRecipes", "Recipe")" class="btn btn-outline-green w-100">View Recipes</a>
                 </div>
             </div>
         </div>
 
         <!-- Inventory Card -->
         <div class="col-md-6 col-lg-4">
-            <div class="card shadow-sm border-0 h-100">
+            <div class="card shadow-sm h-100 card-inventory">
                 <div class="card-body text-center">
+                    <i class="bi bi-boxes"></i>
                     <h5 class="card-title mb-2">Your Inventory</h5>
                     <p class="card-text text-muted">See what ingredients you have at home.</p>
-                    <a href="@Url.Action("Index", "Inventory")" class="btn btn-outline-success w-100">View Inventory</a>
+                    <a href="@Url.Action("Index", "Inventory")" class="btn btn-outline-green w-100">View Inventory</a>
                 </div>
             </div>
         </div>
 
         <!-- Shopping List Card -->
         <div class="col-md-6 col-lg-4">
-            <div class="card shadow-sm border-0 h-100">
+            <div class="card shadow-sm h-100 card-shopping-list">
                 <div class="card-body text-center">
+                    <i class="bi bi-cart-check"></i>
                     <h5 class="card-title mb-2">Your Shopping List</h5>
                     <p class="card-text text-muted">View your shopping list.</p>
-                    <a href="@Url.Action("Index", "ShoppingList")" class="btn btn-outline-warning w-100">View Shopping List</a>
+                    <a href="@Url.Action("Index", "ShoppingList")" class="btn btn-outline-green w-100">View Shopping List</a>
                 </div>
             </div>
         </div>

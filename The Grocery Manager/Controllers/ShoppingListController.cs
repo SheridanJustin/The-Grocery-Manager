@@ -4,6 +4,16 @@ using The_Grocery_Manager.Models;
 using System.Linq;
 using System.Threading.Tasks;
 
+/// <summary>
+/// ShoppingListController.cs
+/// 
+/// Controls all interactions related to the user's shopping list,
+/// including displaying the list, adding ingredients, and removing
+/// individual or all items.
+/// 
+/// Author: Justin Kadyrov
+/// </summary>
+
 public class ShoppingListController : Controller
 {
     private readonly IRecipeRepository _recipeRepository;
@@ -98,7 +108,7 @@ public class ShoppingListController : Controller
             {
                 UserId = userId.Value,
                 GeneratedOn = DateTime.Now,
-                Title = "My Shopping List", // Set a default title
+                Title = "My Shopping List",
                 Ingredients = new List<Ingredient>()
             };
             _groceryDbContext.ShoppingLists.Add(shoppingList);

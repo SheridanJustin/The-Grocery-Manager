@@ -2,6 +2,7 @@
 {
     /// <summary>
     /// Represents a recipe in the system.
+    /// Justin Kadyrov
     /// </summary>
     public class Recipe
     {

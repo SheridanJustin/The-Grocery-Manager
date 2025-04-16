@@ -1,6 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using The_Grocery_Manager.Models;
 
+
+// Manages user authentication, registration, profile display, and user dashboard logic.
+// Author: Justin Kadyrov
+
 namespace The_Grocery_Manager.Controllers
 {
     public class UserController : Controller
@@ -43,7 +47,7 @@ namespace The_Grocery_Manager.Controllers
 
             if (user != null)
             {
-                HttpContext.Session.SetInt32("UserId", user.UserId); // ✅ Save user ID in session
+                HttpContext.Session.SetInt32("UserId", user.UserId); 
                 return RedirectToAction("Dashboard", "User");
             }
 
@@ -94,7 +98,6 @@ namespace The_Grocery_Manager.Controllers
             var inventory = _context.Inventories.Where(i => i.UserId == userId).ToList();
             var shoppingList = _context.ShoppingLists.Where(s => s.UserId == userId).ToList();
 
-            // Pass data to the view
             var model = new UserDashboardViewModel
             {
                 Recipes = recipes,

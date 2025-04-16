@@ -2,6 +2,7 @@
 {
     /// <summary>
     /// Represents an individual ingredient required for recipes and shopping lists.
+    /// Author: Justin Kadyrov
     /// </summary>
     public class Ingredient
     {

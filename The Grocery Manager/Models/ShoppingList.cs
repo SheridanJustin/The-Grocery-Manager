@@ -2,6 +2,7 @@
 {
     /// <summary>
     /// Represents a shopping list, including ingredients that the user needs to buy.
+    /// Justin Kadyrov
     /// </summary>
     public class ShoppingList
     {

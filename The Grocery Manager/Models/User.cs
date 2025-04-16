@@ -2,6 +2,7 @@
 {
     /// <summary>
     /// Represents a registered user in the system.
+    /// Justin Kadyrov
     /// </summary>
     public class User
     {
